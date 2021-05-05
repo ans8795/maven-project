@@ -26,5 +26,14 @@ stages
            }
            }    
      } 
+    stage ("build")
+     {
+      steps{
+          withMaven(jdk: 'JAVA', maven: 'MVN') {
+          sh 'mvn package'
+           }
+           }    
+     }  
+
  }
  }
