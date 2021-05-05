@@ -3,7 +3,6 @@ pipeline
 
 agent any
 stages
-{
  {
    stage ("scm checkout")
     {
@@ -12,7 +11,6 @@ stages
           }
     }
   }  
-{
   stage ("compile source code")
    {
       steps{
@@ -23,5 +21,3 @@ stages
 
    }
  }
- }
-}
