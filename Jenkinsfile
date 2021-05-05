@@ -9,8 +9,7 @@ stages
      steps{
           git branch: 'master', url: 'https://github.com/ans8795/maven-project.git'
           }
-    }
-  }  
+    }  
   stage ("compile source code")
    {
       steps{
@@ -21,3 +20,4 @@ stages
 
    }
  }
+}
