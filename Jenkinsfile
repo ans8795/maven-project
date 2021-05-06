@@ -34,6 +34,15 @@ stages
            }
            }    
      }  
+     stage ("tomcat dev deployment")
+     {
+      steps{
+         sshagent(['deploytomcat']) {
+          sh 'scp -o StrictHostKeyChecking=no */target/*.war ec2-user@15.206.81.60:/var/lib/tomcat/webapps'
+                  }
+           }    
+     }  
 
  }
  }
+
