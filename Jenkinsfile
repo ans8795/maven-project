@@ -16,7 +16,7 @@ stages
       steps {
               withSonarQubeEnv('sonarqubenew') {
                  withMaven(jdk: 'JAVA', maven: 'MVN') {
-                sh 'mvn clean sonar:sonar package'
+                 sh 'mvn clean package sonar:sonar'
               }
             }
      }
