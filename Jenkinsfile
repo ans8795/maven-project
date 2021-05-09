@@ -37,7 +37,7 @@ stages
      stage ("sonar")
      {
       steps{
-          withSonarQubeEnv('sonarqubenew') {
+          withSonarQubeEnv('sonar') {
                 sh 'mvn clean package sonar:sonar'
                   }
            }    
