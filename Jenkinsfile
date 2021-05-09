@@ -10,17 +10,38 @@ stages
           git branch: 'master', url: 'https://github.com/ans8795/maven-project.git'
           }
      } 
-    
-     stage ("build maven and sonarqube analysis")
+   stage ("compile source code")
      {
-      steps {
-              withSonarQubeEnv('sonarqubenew') {
-                 withMaven(jdk: 'JAVA', maven: 'MVN') {
-                 sh 'mvn clean package sonar:sonar'
-              }
-            }
+      steps{
+          withMaven(jdk: 'JAVA', maven: 'MVN') {
+          sh 'mvn compile'
+           }
+           }    
      }
-     }
+    stage ("test")
+     {
+      steps{
+          withMaven(jdk: 'JAVA', maven: 'MVN') {
+          sh 'mvn test'
+           }
+           }    
+     } 
+    stage ("build")
+     {
+      steps{
+          withMaven(jdk: 'JAVA', maven: 'MVN') {
+          sh 'mvn package'
+           }
+           }    
+     }  
+     stage ("sonar")
+     {
+      steps{
+          withSonarQubeEnv('sonarqubenew') {
+                sh 'mvn clean package sonar:sonar'
+                  }
+           }    
+     }  
 
  }
  }
