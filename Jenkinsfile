@@ -37,7 +37,7 @@ stages
      stage ("sonarqube analysis")
      {
       steps {
-              withSonarQubeEnv(credentialsId: 'sonar2') {
+              withSonarQubeEnv(credentialsId: 'newsonar') {
                 sh 'mvn clean package sonar:sonar'
               }
             }
